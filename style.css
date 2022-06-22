@@ -1,0 +1,235 @@
+@import "src/fonts/fonts.css";
+
+:root{
+  --header-height:6rem;
+  --content-height:calc(100vh - var(--header-height));
+  --header-right-left-padding:100px;
+  --body-left-padding:var(--header-right-left-padding);
+  --text-color:#fff;
+  --primary-color:#1c073e;
+  --second-color:yellow;
+  --menu-width:300px;
+}
+
+
+@media (max-width:1200px){
+  :root{
+    --header-right-left:padding:30px;
+  }
+}
+*,*::before,*::after{
+ font-family:'Montserrat',sans-serif;
+ box-sizing: border-box;
+ margin:0;
+ padding:0;
+ text-decoration: none;
+ list-style:none;
+ user-select:none;
+ -webkit-user-drag:none;
+}
+
+html,body{
+  width:100vw;
+  max-width:1600px;
+  max-height:100vh;
+  margin:0 auto; 
+  color:var(--text-color);
+  background-color:var(--primary-color);
+}
+
+a{
+  color:var(--text-color);
+}
+
+
+/* header,
+.content{
+  border:3px dashed var(--text-color);
+}
+
+.content{
+  border-top:none;
+} */
+
+header,.content{
+  display:flex;
+  position:relative;
+  align-items: center;
+  transition:0.3s;
+}
+
+header{
+  justify-content:space-between;
+  height:var(--header-height);
+  padding:0 var(--header-right-left-padding);
+  transition: none;
+}
+.content{
+  justify-content:flex-start;
+  height:var(--content-height);
+  padding-left:var(--body-left-padding);
+}
+
+
+header a.logo{
+  font-size:2rem;
+  line-height:1em;
+}
+
+header nav{
+  width:40%;
+  min-width:300px;
+  display:flex;
+  justify-content:space-between;
+  gap:10%;
+  font-size:0.9rem;
+}
+
+header nav a{
+  position:relative;
+}
+
+header nav a::before{
+  content:"";
+  display:block;
+  position:absolute;
+  bottom:-5px;
+  left:50%;
+  width:0%;
+  height:3px;
+  border-radius: 3px;
+  background-color: var(--text-color);
+  transition:0.3s ease;
+}
+
+header nav a:hover::before{
+  width:100%;
+  left:0;
+}
+
+header i{
+  display:none;
+  color:var(--text-color);
+  font-size:1.4rem;
+  cursor:pointer;
+}
+
+header i:hover{
+  color:var(--second-color);
+}
+
+.content .info{
+  z-index:1;
+}
+
+.content .info h2{
+  font-size:3rem;
+  line-height:1.2em;
+}
+
+.content .info h2:nth-child(3){
+  color:var(--second-color);
+}
+
+.content .info h2:nth-child(3)::after{
+  content:".";
+  color:var(--text-color);
+}
+
+.content .info h3{
+  font-weight:300;
+  font-size:0.9rem;
+  margin:2rem 0;
+}
+
+.btn-group{
+  display:flex;
+  gap:1rem;
+}
+
+.content .info a{
+  border:1px solid #fff;
+  padding:0.9rem 2rem;
+  border-radius:3rem;
+  font-size:0.9rem;
+  transition:0.3s;
+}
+
+.content .info a:first-child{
+  color:var(--primary-color);
+  background:var(--text-color);
+}
+
+.content .info a:hover{
+   color:var(--second-color);
+   background:var(--primary-color);
+   border-color:var(--secondary-color);
+}
+
+.background-svg{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+}
+
+
+
+.loading{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index:9999;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:6rem;
+  background-color:var(--primary-color);
+}
+
+.menu{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(15px);
+  z-index:998;
+  display:none;
+}
+
+.menu i{
+  font-size:1.7rem;
+  position:fixed;
+  right:var(--header-right-left-padding);
+  top:var(--header-right-left-padding);
+  cursor:pointer;
+}
+
+.menu i:hover{
+  color:var(--second-color)
+}
+
+.menu a{
+  width:var(--menu-width);
+  text-align: center;
+  border:1px solid var(--text-color);
+  padding:2rem;
+  margin:1rem;
+  font-size:2rem;
+  border-radius:10rem;
+}
+
+.menu a:hover{
+  color:var(--second-color);
+  border-color:var(--second-color);
+}
